@@ -1,19 +1,12 @@
 # Compiled binaries and object files
 *.o
 *.obj
-*.exe
 *.out
 *.bin
 *.dll
 *.so
 *.dylib
-
-# Build directories
-build/
-bin/
-obj/
-Debug/
-Release/
+*.pdb
 
 # Temporary files
 *~
