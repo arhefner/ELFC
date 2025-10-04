@@ -8,6 +8,11 @@
 *.dylib
 *.pdb
 
+# Build directories
+obj/
+Debug/
+Release/
+
 # Temporary files
 *~
 *.bak

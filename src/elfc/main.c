@@ -151,47 +151,20 @@ static void assemble(char *file, char *path) {
     // }
 }
 
-// arh - unused function concat
-#if 0
-static int concat(int k, char *buf, char *s) {
-    int	n;
-
-    n = strlen(s);
-    if (k + n + 2 >= TEXTLEN)
-        cmderror("linker command too long", buf);
-    strcat(buf, " ");
-    strcat(buf, s);
-    return k + n + 1;
-}
-#endif
-// grw need to pass filename to Link/02
-// static void link(void) {
+//arh - removed unused function concat
+//grw need to pass filename to Link/02
+//static void link(void) {
 static void link(char *fname, char *path) {
-    // arh - i,k not used
-    // int	i, k;
-    char cmd[TEXTLEN + 2];
-    // grw - cmd2 not used
-    // char	cmd2[TEXTLEN+2];
+    char cmd[TEXTLEN+2];
+    //grw - cmd2 not used
+    //char	cmd2[TEXTLEN+2];
     char *ofile;
-    // grw - add binary file name
+    //grw - add binary file name
     char *binfile;
-    // grw - initialize of file to output file name
+    //grw - initialize of file to output file name
     ofile = newfilename(fname, "prg");
     binfile = newfilename(fname, "elfos");
-    // grw - rewrote logic for Link/02
-    // ofile = O_outfile? O_outfile: AOUTNAME;
-    // if (strlen(ofile) + strlen(LDCMD) + strlen(SCCDIR)*2 >= TEXTLEN)
-    //	cmderror("linker command too long", NULL);
-    // sprintf(cmd, LDCMD, ofile, SCCDIR, O_stdio? "": "n");
-    // k = strlen(cmd);
-    // for (i=0; i<Nf; i++)
-    //	k = concat(k, cmd, Files[i]);
-    // k = concat(k, cmd, SCCLIBC);
-    // concat(k, cmd, SYSLIBC);
-    // sprintf(cmd2, cmd, SCCDIR);
-    // if (O_verbose > 1) printf("%s\n", cmd2);
-    // if (system(cmd2))
-    //	cmderror("linker invocation failed", NULL);
+    //grw - rewrote logic for Link/02
 
     if (strlen(O_outfile) + 6 + strlen(ofile) + strlen(LDCMD) +
             strlen(SYSLIBC) + strlen(binfile) + strlen(path) >=
